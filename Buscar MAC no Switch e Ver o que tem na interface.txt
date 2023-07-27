@@ -1,0 +1,5 @@
+Buscar MAC no Switch
+display mac-address dca5-f486-268f
+
+Buscar o que tem na interface
+display mac-address interface ethernet1/0/2

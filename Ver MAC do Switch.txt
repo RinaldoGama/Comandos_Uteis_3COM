@@ -1,0 +1,3 @@
+Ver MAC do Switch
+sys
+dis device manuinfo

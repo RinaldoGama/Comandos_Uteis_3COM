@@ -1,0 +1,29 @@
+ACESSANDO VLAN 2 
+[Switch]interface Vlan-interface 2010
+
+Criando uma Vlan e colocando-a uma descrição
+[Switch] vlan 3
+[Switch-vlan] description
+
+Criando várias vlans ao mesmo tempo
+[Switch] vlan to 2 to 5
+
+Apagando uma vlan
+[Switch] undo vlan 2
+
+Mostrando quais as vlans que existem no switch
+[Switch] display vlan
+
+Mostrando as informações de uma determinada vlan (descrição, endereço IP se houver, portas tagged e untagged)
+[Switch] display vlan  2
+
+Acessando VLAN INTERFACE E DEFININDO IP PARA A VLAN 2 
+[Switch]interface Vlan-interface 2
+[Switch]-Vlan-Interface]ip address 192.168.100.1 255.255.255.0
+
+Adicionando ao dominio
+domain positivo.local
+
+
+Configurando o default gateway
+ip route-static 0.0.0.0 0.0.0.0 172.22.31.254 preference 60

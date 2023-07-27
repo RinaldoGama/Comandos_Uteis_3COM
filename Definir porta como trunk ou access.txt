@@ -1,0 +1,17 @@
+Acessando a interface
+interface gigabit-ethernet 1/0/24
+
+Definindo a porta como access
+port link-type access
+
+Associando a porta com a Vlan 5
+port access vlan 5
+
+Removendo Vlan da porta
+undo port access vlan
+
+Definindo a porta como trunk
+port link-type trunk
+
+Permitindo todas as vlans
+port trunk permit vlan all

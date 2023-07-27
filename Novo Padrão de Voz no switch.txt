@@ -1,0 +1,14 @@
+Indicado para a Posigraf
+
+voice vlan mac-address 0013-1900-0000 mask ffff-ff00-0000 description Cisco 7960 phone
+voice vlan mac-address 0015-2b00-0000 mask ffff-ff00-0000 description Cisco 7940 phone
+voice vlan mac-address 0c27-2400-0000 mask ffff-ff00-0000 description Cisco 3905 Phone IV
+voice vlan mac-address 20bb-c000-0000 mask ffff-ff00-0000 description Cisco 3905 Phone VI
+voice vlan mac-address 44ad-d900-0000 mask ffff-ff00-0000 description Cisco 3905 Phone
+voice vlan mac-address 4cbc-4800-0000 mask ffff-ff00-0000 description Cisco 3905 Phone V
+voice vlan mac-address d0c7-8900-0000 mask ffff-ff00-0000 description Cisco ATA
+voice vlan mac-address dca5-f400-0000 mask ffff-ff00-0000 description Cisco 3905 Phone II
+voice vlan mac-address ece1-a900-0000 mask ffff-ff00-0000 description Cisco 3905 Phone III
+voice vlan mac-address f029-2900-0000 mask ffff-ff00-0000 description Cisco 3905 Phone VII
+voice vlan mac-address f84f-5700-0000 mask ffff-ff00-0000 description Cisco 3905 Phone I
+voice vlan 2050 enable

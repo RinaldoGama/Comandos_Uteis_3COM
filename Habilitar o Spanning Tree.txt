@@ -1,0 +1,2 @@
+Habilitando o spanning tree (já é habilitado por padrão)
+[Switch] stp enable

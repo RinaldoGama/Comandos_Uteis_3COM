@@ -1,0 +1,7 @@
+
+Copiando a configuração de uma porta para a outra
+copy configuration source GigabitEthernet 1/0/1 destination GigabitEthernet 1/0/2
+
+Copiando a configuração de uma porta para varias
+copy configuration source GigabitEthernet 1/0/1 destination GigabitEthernet 1/0/2 to GigabitEthernet 1/0/15
+

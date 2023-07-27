@@ -1,0 +1,341 @@
+login as: 103657.admin
+103657.admin@172.25.158.140's password:
+
+********************************************************************************
+*  Copyright(c) 2004-2012 3Com Corp. and its licensors. All rights reserved.   *
+*  Without the owner's prior written consent,                                  *
+*  no decompiling or reverse-engineering shall be allowed.                     *
+********************************************************************************
+
+<077SWT011>
+%Nov 11 15:04:15:692 2021 077SWT011 SHELL/5/LOGIN:- 1 - 103657.admin(192.168.232                                                                             .6) in unit1 login
+<077SWT011>dis
+<077SWT011>display ur
+<077SWT011>display cu
+<077SWT011>display current-configuration
+#
+ sysname 077SWT011
+#
+ undo password-control aging enable
+ undo password-control length enable
+ undo password-control history enable
+ password-control login-attempt 3 exceed lock-time 120
+#
+ undo ntdp enable
+#
+ local-server nas-ip 127.0.0.1 key cipher $c$3$HAO5JYXpkiJl8g1oQqrM8gVxl9i/vH8=
+#
+ domain default enable nps2
+#
+ lldp enable
+ lldp compliance cdp
+#
+ undo ndp enable
+#
+radius scheme system
+radius scheme nps
+ server-type extended
+ primary authentication 172.22.16.75
+ primary accounting 172.22.16.75
+ accounting optional
+ key authentication cipher $c$3$fqeogeoVRh+YdtxMnKPuZNIDWhK0CKaewvE=
+ key accounting cipher $c$3$15EYOThBNMaJh23x8m2E7JjaxjmWivRo25k=
+ timer realtime-accounting 15
+ timer response-timeout 5
+ retry 5
+ user-name-format without-domain
+radius scheme nps2
+ server-type extended
+ primary authentication 172.20.20.171
+ primary accounting 172.20.20.171
+ accounting optional
+ key authentication cipher $c$3$E24hUWByo2ntc1ATMCtHh1OBPTFPcvzJAGB1cWpQHV+f8FM=
+ key accounting cipher $c$3$O+IgHrypAA9iurZ6lwYY+lemvIYCfkNH8pu98VhFkXHFv28=
+ timer realtime-accounting 15
+ timer response-timeout 5
+ retry 5
+ user-name-format without-domain
+#
+domain nps
+ scheme radius-scheme nps
+ access-limit enable 60
+ idle-cut enable 20 20000
+domain nps2
+ scheme radius-scheme nps2
+ authentication radius-scheme nps2 local
+ access-limit enable 60
+ idle-cut enable 20 20000
+domain system
+#
+local-user admin
+ password cipher $c$3$cUHHN+d+FnznFe60cIcG3q+KvZoGzGUe86N+mbTIwOULsaBHPrrN
+ service-type ssh telnet terminal
+ level 3
+#
+ stp mode rstp
+#
+vlan 1
+ description VLAN_ADM
+#
+vlan 5
+ description VLAN_VERMELHO_CESP_FISIO_BIOT
+#
+vlan 27
+ description Gerencia-APs
+#
+vlan 200
+ description ACAD_Cabeada_Int2
+ name ACAD_Cabeada_Int2
+#
+vlan 600
+ description Wireless_ACAD_Int2
+ name Wireless_ACAD_Int2
+#
+vlan 711
+ description Wireless_ADM_Int2
+ name Wireless_ADM_Int2
+#
+vlan 810
+ description Cameras_int2
+#
+vlan 2010
+ name Gerenciamento
+#
+vlan 2050
+ description WLAN-Visitantes
+ name WLAN-Visitantes
+#
+vlan 2051
+#
+vlan 2060
+ description WIFI_Educacional
+ name WIFI_Educacional
+#
+vlan 2061
+ description WIFI-Positivo_ADM
+#
+vlan 2070
+ description WIFI_Aluno
+ name WIFI_Aluno
+#
+vlan 2071
+ description WIFI - Alunos
+#
+vlan 2072
+ description WIFI_CWBVolei
+ name WIFI_CWBVolei
+#
+vlan 2080
+ description WIFI_Professores
+ name WIFI_Professores
+#
+vlan 2081
+ description WIFI - Professores
+#
+vlan 2090
+ description WIFI_Visitantes
+ name WIFI_Visitantes
+#
+vlan 2091
+ description Mostra-UP
+ name Mostra-UP
+#
+vlan 2101
+ description Telefonia-VoIP-01
+ name Telefonia-VoIP-01
+#
+vlan 2102
+ description Telefonia-VoIP-02
+ name Telefonia-VoIP-02
+#
+interface Vlan-interface1
+ description VLAN_ADM
+#
+interface Vlan-interface2010
+ ip address 172.25.158.140 255.255.255.192
+#
+ ntp-service unicast-server 172.20.20.64 priority
+#
+interface Aux1/0/0
+#
+interface Ethernet1/0/1
+ port access vlan 5
+ voice vlan enable
+ description PONTO CWB VOLEI
+#
+interface Ethernet1/0/2
+ port access vlan 5
+ voice vlan enable
+ description PONTO CWB VOLEI
+#
+interface Ethernet1/0/3
+ port access vlan 2072
+ voice vlan enable
+ description PONTO CWB VOLEI
+#
+interface Ethernet1/0/4
+ port access vlan 5
+ voice vlan enable
+#
+interface Ethernet1/0/5
+ port access vlan 5
+ voice vlan enable
+#
+interface Ethernet1/0/6
+ port access vlan 5
+ voice vlan enable
+#
+interface Ethernet1/0/7
+ voice vlan enable
+#
+interface Ethernet1/0/8
+ port access vlan 5
+ voice vlan enable
+#
+interface Ethernet1/0/9
+ voice vlan enable
+#
+interface Ethernet1/0/10
+ port access vlan 5
+ voice vlan enable
+#
+interface Ethernet1/0/11
+ port access vlan 810
+ voice vlan enable
+ description cameras internacional 2
+#
+interface Ethernet1/0/12
+ stp edged-port enable
+ stp root-protection
+ port access vlan 2051
+#
+interface Ethernet1/0/13
+ stp edged-port enable
+ port access vlan 2051
+ description CFTV GINASIO INT2
+#
+interface Ethernet1/0/14
+ voice vlan enable
+#
+interface Ethernet1/0/15
+ voice vlan enable
+#
+interface Ethernet1/0/16
+ speed 10
+ port link-type hybrid
+ port hybrid vlan 1 untagged
+ voice vlan enable
+#
+interface Ethernet1/0/17
+ voice vlan enable
+ description Ponto 14 - Ginasio - Sala Curitiba Volei
+#
+interface Ethernet1/0/18
+ port access vlan 5
+#
+interface Ethernet1/0/19
+ voice vlan enable
+ description P.19 - Ginasio - Sala Multiuso 2
+#
+interface Ethernet1/0/20
+ voice vlan enable
+#
+interface Ethernet1/0/21
+ port access vlan 5
+ voice vlan enable
+#
+interface Ethernet1/0/22
+ port access vlan 5
+#
+interface Ethernet1/0/23
+ port access vlan 810
+ voice vlan enable
+ description CFTV GINASIO INT2
+#
+interface Ethernet1/0/24
+ stp edged-port enable
+ port link-type trunk
+ port trunk permit vlan all
+ port trunk pvid vlan 27
+ description ACCESS POINT EVEGN002 embaixo placar
+#
+interface GigabitEthernet1/0/25
+ port link-type trunk
+ port trunk permit vlan all
+ shutdown
+ description DOWNLINK - 040SWTGINASIO01
+#
+interface GigabitEthernet1/0/26
+ port link-type trunk
+ port trunk permit vlan all
+ description UPLINK - 077SWT001 - Gi 1/0/28
+#
+interface GigabitEthernet1/0/27
+ port link-type trunk
+ port trunk permit vlan all
+ description DOWNLINK - 077SWT012 - Gi 0/1
+#
+interface GigabitEthernet1/0/28
+ port link-type trunk
+ port trunk permit vlan all
+ shutdown
+ description UPLINK - EVEGN201 - Gi 1/0/50
+#
+ undo xrn-fabric authentication-mode
+#
+interface NULL0
+#
+ info-center source default channel 2 log level debugging
+ info-center loghost 172.20.20.135
+ info-center synchronous
+#
+ voice vlan mac-address 0001-e300-0000 mask ffff-ff00-0000 description Siemens AG phone
+ voice vlan mac-address 0004-0d00-0000 mask ffff-ff00-0000 description Avaya phone
+ voice vlan mac-address 000b-8200-0000 mask ffff-ff00-0000 description GrandStream GXP1405
+ voice vlan mac-address 0013-1900-0000 mask ffff-ff00-0000 description Cisco 7960 phone
+ voice vlan mac-address 0015-2b00-0000 mask ffff-ff00-0000 description Cisco 7940 phone
+ voice vlan mac-address 0060-b900-0000 mask ffff-ff00-0000 description Philips and NEC AG phone
+ voice vlan mac-address d0c7-8900-0000 mask ffff-ff00-0000 description Cisco ATA
+ voice vlan mac-address dca5-f400-0000 mask ffff-ff00-0000 description Cisco 3905 Phone II
+ voice vlan mac-address ece1-a900-0000 mask ffff-ff00-0000 description Cisco 3905 Phone III
+ voice vlan mac-address f84f-5700-0000 mask ffff-ff00-0000 description Cisco 3905 Phone
+ voice vlan 2102 enable
+#
+ ip route-static 0.0.0.0 0.0.0.0 172.22.31.254 preference 60
+ ip route-static 0.0.0.0 0.0.0.0 172.25.158.129 preference 60
+#
+ snmp-agent
+ snmp-agent local-engineid 8000002B001AC1D9AEC06877
+ snmp-agent community read c1aM0n5cTrL
+ snmp-agent sys-info contact TI-Redes
+ snmp-agent sys-info location Ginasio - Makerspace
+ snmp-agent sys-info version all
+#
+ undo cluster enable
+#
+ ip http shutdown
+#
+ ssh authentication-type default all
+ ssh server authentication-retries 5
+#
+ header login %
+
+####################################################################
+#       GRUPO POSITIVO - TI REDES E TELECOM - (41-3250-3951)       #
+####################################################################
+#      Acesso autorizado apenas para administradores de rede       #
+#        Todas as conexoes sao monitoradas e auditadas             #
+#                 Desconecte imediatamente !!!                     #
+####################################################################
+
+%
+#
+user-interface aux 0 7
+ authentication-mode password
+ set authentication password cipher $c$3$Qb/wNHtB0b+cKyR+F2qG6JLN9U638ksmm2o92KkCILzuBA==
+user-interface vty 0 4
+ authentication-mode scheme
+ protocol inbound ssh
+#
+return
+<077SWT011>

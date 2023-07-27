@@ -1,0 +1,5 @@
+port link-type hybrid
+
+port hybrid vlan 2051 untagged
+port hybrid pvid vlan 2051
+voice vlan enable

@@ -1,0 +1,2 @@
+Acessar interface 
+interface Ethernet3/0/28

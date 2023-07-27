@@ -1,0 +1,2 @@
+Verificar porta
+<032SWT001>display current-configuration interface Ethernet1/0/7
